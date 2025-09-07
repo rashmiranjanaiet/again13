@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-Time Disaster Detection & Response</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-left">
+      <h1>Real-Time Disaster Detection & Response</h1>
+      <p class="subtitle">Worldwide cooperation framework uniting governments, organizations and disaster managers. Live monitoring & alerts for natural, health, technological and human-made disasters.</p>
+      <div class="highlight">
+        <button id="emergency-btn" class="blink">EMSR839 - Earthquake in Afghanistan</button>
+        <a id="copernicus-link" href="https://rapidmapping.emergency.copernicus.eu/EMSR839/download" target="_blank" rel="noopener">Open Copernicus maps</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="earth-wrap">
+        <div class="globe"></div>
+        <div class="satellite"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="control-row">
+        <div class="control-card alert-dot red" data-type="earthquakes">
+          <h3>Earthquake Detection</h3>
+          <small>USGS (Latest Earthquakes)</small>
+          <p id="eq-count">Loading…</p>
+        </div>
+
+        <div class="control-card alert-dot blue" data-type="tsunami">
+          <h3>Tsunami Detection</h3>
+          <small>NOAA / Tsunami.gov</small>
+          <p id="tsunami-msg">Loading…</p>
+        </div>
+
+        <div class="control-card alert-dot orange" data-type="wildfire">
+          <h3>Wildfire Detection</h3>
+          <small>NASA FIRMS</small>
+          <p><a href="https://firms.modaps.eosdis.nasa.gov/map/" target="_blank">Open FIRMS map</a></p>
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-card" data-type="volcanoes">
+          <h3>Volcano Eruptions</h3>
+          <small>Smithsonian / GVP</small>
+          <ul id="volcano-list"><li>Loading…</li></ul>
+        </div>
+
+        <div class="control-card" data-type="floods">
+          <h3>Floods</h3>
+          <small>ReliefWeb</small>
+          <ul id="flood-list"><li>Loading…</li></ul>
+        </div>
+
+        <div class="control-card" data-type="other">
+          <h3>Other hazards</h3>
+          <small>Links & embeds</small>
+          <p><a href="https://www.ncei.noaa.gov/access/monitoring/products/" target="_blank">NOAA Monitoring products</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="map-section">
+      <div id="map"></div>
+      <aside class="map-sidebar">
+        <h4>Earthquakes (Past day)</h4>
+        <ul id="eq-list"></ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <small>Data sources: USGS, Copernicus EMS, FIRMS (NASA), Smithsonian GVP, tsunami.gov, ReliefWeb, NOAA.</small>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
